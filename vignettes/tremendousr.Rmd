@@ -1,0 +1,82 @@
+---
+title: "tremendousr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tremendousr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(tremendousr)
+```
+
+## Creating a Tremendous API Client
+
+To most easily use this package, I recommend you create a Tremendous API Client by calling the `trem_client_new()` function. This is a convenient way to bundle your authentication (API) credentials and ensure you are using the proper environment (sandbox or production) for your calls.[^1] Conveniently, Tremendous prefixes API keys for each environment to differentiate them. If you're using the sandbox environment, your API key would begin with `TEST_`; the production environment key will begin with `PROD_`.
+
+[^1]: It is possible to use the functions described below without a Tremendous API Client by manually passing in the `api_key` and `sandbox` arguments directly to each function, although I think this is more cumbersome and more error prone.
+
+```{r create-test-client}
+test_client <- trem_client_new(api_key = "TEST_YOUR-KEY-HERE",
+                               sandbox = TRUE)
+# Print Tremendous API Client
+test_client
+```
+
+To make your life easier for subsequent uses, I recommend calling `trem_set_api_key()` with your API key, which will walk you through adding this information as an R environment variable:
+
+```{r set-api-key}
+trem_set_api_key("TEST_YOUR-KEY-HERE")
+```
+## Send Payments
+
+Given the most likely reason for using tremendousr is to send payments, we have a nice helper function to do just that! With your Tremendous Client created, it's as simple as calling `send_payment()` with the proper arguments. A simple example is below. For more documentation on each argument, please call `?send_payment()` in your console.
+
+```{r send-payment, eval = FALSE}
+
+send_payment(client = test_client,
+             name = "first last",
+             email = "email@website.com",
+             reward_amount = 10,
+             currency_code = "USD",
+             delivery_method = "EMAIL",
+             payment_description_id = "payment-from-tremendousr-examples",
+             funding_source_id = "your-funding-id-from-tremendous",
+             reward_types = "Q24BD9EZ332JT", # ID for virtual visa gift card
+             parse = TRUE # Return a parsed API response
+             )
+```
+
+## Perform GET Requests
+
+tremendousr also provides support for general GET requests with the function `trem_get()`. Some examples from the function documentation:
+
+```{r trem-get-examples, eval = FALSE}
+
+# Use a GET request to list funding sources available in your Tremendous Account.  Documentation: https://developers.tremendous.com/reference/core-funding-source-index
+trem_get(trem_client, "funding_sources")
+
+# Use a GET request to list all orders (payment history) on your Tremendous Account.   Documentation: https://developers.tremendous.com/reference/core-orders-index
+trem_get(trem_client, "orders")
+```
+
+## Perform POST Requests
+
+tremendousr also provides support for general POST requests with the function `trem_post()`. An example from the function documentation:
+
+```{r trem-post-examples, eval = FALSE}
+
+# Use a POST request to invite new members to your Tremendous Account.
+# Documentation: https://developers.tremendous.com/reference/post_members
+ trem_post(trem_client,
+           path = "members",
+           body = list(email = "example@website.com",
+                       name = "Example Person",
+                       role = "MEMBER"))
+
+```
