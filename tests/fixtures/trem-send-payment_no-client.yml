@@ -1,0 +1,49 @@
+http_interactions:
+- request:
+    method: post
+    uri: https://testflight.tremendous.com/api/v2/orders
+    body:
+      encoding: ''
+      string: '{"external_id":"sent-from-test_no-client12:09_09-19-21","payment":{"funding_source_id":"8X9X7Z81XZ9X"},"rewards":{"value":{"denomination":0.36,"currency_code":"USD"},"delivery":{"method":"EMAIL"},"recipient":{"name":"jdt","email":"jdt@jdtrat.com"},"products":["Q24BD9EZ332JT","VW9JLMPRL9N7"]}}'
+    headers:
+      User-Agent: r-curl/4.3.2 crul/1.1.0 tremendousr/0.0.0.9000
+      Content-Type: application/json
+      Accept-Encoding: gzip, deflate
+      Accept: application/json
+      Authorization: Bearer TEST_2jiz6tjVmP2AiDwGlX6QTxI3V9kjvcnwmf_6mKy3uvI
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Sun, 19 Sep 2021 16:09:57 GMT
+      content-type: application/json; charset=utf-8
+      cf-ray: 691414d3df3763f2-ATL
+      cache-control: max-age=0, private, must-revalidate
+      etag: W/"83b120e767015605bf701ec82fdd5416"
+      strict-transport-security: max-age=31536000; includeSubDomains
+      via: 1.1 vegur
+      cf-cache-status: DYNAMIC
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      referrer-policy: strict-origin-when-cross-origin
+      x-content-type-options: nosniff
+      x-download-options: noopen
+      x-frame-options: SAMEORIGIN
+      x-permitted-cross-domain-policies: none
+      x-request-id: 9207fd36-9240-4d2f-bbfc-acdf0feeadb6
+      x-runtime: '0.591943'
+      x-xss-protection: 1; mode=block
+      set-cookie: __cf_bm=c6RLBMmXgdgL0Bi83goPt19lOJ_v3yErehYZFKjyJWE-1632067797-0-ASzWYoibF7o0vvoa1DFTRO7ctJFa345mxyYlaWA0rxu6d0q8UrZNioLEGkry0v6//MyARKcIkZbXrQ/2pzKKbyc=;
+        path=/; expires=Sun, 19-Sep-21 16:39:57 GMT; domain=.tremendous.com; HttpOnly;
+        Secure; SameSite=None
+      vary: Accept-Encoding
+      server: cloudflare
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"order":{"id":"8DVJLC24T0IU","external_id":"sent-from-test_no-client12:09_09-19-21","created_at":"2021-09-19T16:09:57.406Z","status":"EXECUTED","payment":{"subtotal":0.36,"total":0.36,"fees":0.0},"rewards":[{"id":"Q2HMCNY346RL","order_id":"8DVJLC24T0IU","value":{"denomination":0.36,"currency_code":"USD"},"delivery":{"method":"EMAIL","status":"PENDING"},"recipient":{"email":"jdt@jdtrat.com","name":"jdt"}}]}}'
+  recorded_at: 2021-09-19 16:09:57 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
