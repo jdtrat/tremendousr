@@ -30,9 +30,14 @@ test_client
 
 To make your life easier for subsequent uses, I recommend calling `trem_set_api_key()` with your API key, which will walk you through adding this information as an R environment variable:
 
+```{r set-clipr-allow, include = FALSE}
+Sys.setenv("CLIPR_ALLOW" = TRUE)
+```
+
 ```{r set-api-key}
 trem_set_api_key("TEST_YOUR-KEY-HERE")
 ```
+
 ## Send Payments
 
 Given the most likely reason for using tremendousr is to send payments, we have a nice helper function to do just that! With your Tremendous Client created, it's as simple as calling `send_payment()` with the proper arguments. A simple example is below. For more documentation on each argument, please call `?send_payment()` in your console.
