@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Easily Send Digital Rewards and Incentives with Tremendous • tremendousr</title>
+<title>Easily Send Rewards and Incentives with Tremendous from R • tremendousr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -19,8 +19,8 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><link href="jdtrat/jdtrat.css" rel="stylesheet">
 <link href="jdtrat/jdtrat-2.css" rel="stylesheet">
-<meta property="og:title" content="Easily Send Digital Rewards and Incentives with Tremendous">
-<meta property="og:description" content="A slightly opinionated R interface for the Tremendous API (&lt;https://www.tremendous.com/&gt;). 
+<meta property="og:title" content="Easily Send Rewards and Incentives with Tremendous from R">
+<meta property="og:description" content="A slightly-opinionated R interface for the Tremendous API (&lt;https://www.tremendous.com/&gt;). 
     In addition to supporting direct with GET and POST requests, tremendousr has, dare I say, 
     tremendously intuitive functions for sending digital rewards and incentives directly from R.">
 <meta property="og:image" content="https://tremendousr.jdtrat.com/reference/figures/logo.png">
@@ -110,15 +110,15 @@
   <div class="contents col-md-9">
 <div id="tremendousr" class="section level1">
 
-<div id="easily-send-digital-rewards-from-r" class="section level4">
+<div id="easily-send-rewards-and-incentives-from-r" class="section level4">
 <h4 class="hasAnchor">
-<a href="#easily-send-digital-rewards-from-r" class="anchor"></a>Easily Send Digital Rewards from R</h4>
+<a href="#easily-send-rewards-and-incentives-from-r" class="anchor"></a>Easily Send Rewards and Incentives from R</h4>
 <!-- badges: start -->
 
 <!-- badges: end -->
 <hr>
 <p><img src="https://jdtrat.com/project/tremendousr/featured-hex.png" width="328" height="378" align="right"></p>
-<p><a href="https://www.tremendous.com/">tremendous</a> is a platform that “empowers companies to buy, track and manage digital and physical payments.” This package provides a slightly opinionated R interface for the ‘Tremendous’ API with, dare I say, <em>tremendously</em> intuitive functions for sending digital rewards and incentives directly from R.</p>
+<p><a href="https://www.tremendous.com/">tremendous</a> is a platform that “empowers companies to buy, track and manage digital and physical payments.” This package provides a slightly-opinionated R interface for the ‘Tremendous’ API with, dare I say, <em>tremendously</em> intuitive functions for sending rewards and incentives directly from R.</p>
 </div>
 <div id="table-of-contents" class="section level2">
 <h2 class="hasAnchor">
@@ -161,7 +161,7 @@
 <code class="sourceCode R"><span class="va">test_client</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/trem_client_new.html">trem_client_new</a></span><span class="op">(</span>api_key <span class="op">=</span> <span class="st">"TEST_YOUR-KEY-HERE"</span>,
                                sandbox <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
-<span class="fu"><a href="reference/send_payment.html">send_payment</a></span><span class="op">(</span>client <span class="op">=</span> <span class="va">test_client</span>,
+<span class="fu"><a href="reference/trem_send_reward.html">trem_send_reward</a></span><span class="op">(</span>client <span class="op">=</span> <span class="va">test_client</span>,
              name <span class="op">=</span> <span class="st">"first last"</span>,
              email <span class="op">=</span> <span class="st">"email@website.com"</span>,
              reward_amount <span class="op">=</span> <span class="fl">10</span>,

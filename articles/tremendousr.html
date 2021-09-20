@@ -140,12 +140,12 @@
 <span class="co">#&gt; - Call `usethis::edit_r_environ()`.</span>
 <span class="co">#&gt; - Check that '.Renviron' ends with a new line.</span></code></pre></div>
 </div>
-<div id="send-payments" class="section level2">
+<div id="send-rewards" class="section level2">
 <h2 class="hasAnchor">
-<a href="#send-payments" class="anchor"></a>Send Payments</h2>
-<p>Given the most likely reason for using tremendousr is to send payments, we have a nice helper function to do just that! With your Tremendous Client created, it’s as simple as calling <code><a href="../reference/send_payment.html">send_payment()</a></code> with the proper arguments. A simple example is below. For more documentation on each argument, please call <code>?send_payment()</code> in your console.</p>
+<a href="#send-rewards" class="anchor"></a>Send Rewards</h2>
+<p>Given the most likely reason for using tremendousr is to send rewards, we have a nice helper function to do just that! With your Tremendous Client created, it’s as simple as calling <code><a href="../reference/trem_send_reward.html">trem_send_reward()</a></code> with the proper arguments. A simple example is below. For more documentation on each argument, please call <code>?trem_send_reward()</code> in your console.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/send_payment.html">send_payment</a></span><span class="op">(</span>client <span class="op">=</span> <span class="va">test_client</span>,
+<code class="sourceCode R"><span class="fu"><a href="../reference/trem_send_reward.html">trem_send_reward</a></span><span class="op">(</span>client <span class="op">=</span> <span class="va">test_client</span>,
              name <span class="op">=</span> <span class="st">"first last"</span>,
              email <span class="op">=</span> <span class="st">"email@website.com"</span>,
              reward_amount <span class="op">=</span> <span class="fl">10</span>,
