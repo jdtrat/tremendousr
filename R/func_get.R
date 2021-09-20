@@ -5,7 +5,7 @@
 #'   official [Tremendous API
 #'   documentation](https://developers.tremendous.com/).
 #'
-#' @inheritParams send_payment
+#' @inheritParams trem_send_reward
 #' @inheritParams trem_post
 #'
 #' @param ... Curl options passed to [crul::verb-GET]

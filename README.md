@@ -1,6 +1,6 @@
 # tremendousr
 
-#### Easily Send Digital Rewards from R
+#### Easily Send Rewards and Incentives from R
 
 <!-- badges: start -->
 
@@ -12,7 +12,7 @@
 
 <img src="https://jdtrat.com/project/tremendousr/featured-hex.png" width="328" height="378" align="right"/>
 
-[tremendous](https://www.tremendous.com/) is a platform that "empowers companies to buy, track and manage digital and physical payments." This package provides a slightly opinionated R interface for the 'Tremendous' API with, dare I say, *tremendously* intuitive functions for sending digital rewards and incentives directly from R.
+[tremendous](https://www.tremendous.com/) is a platform that "empowers companies to buy, track and manage digital and physical payments." This package provides a slightly-opinionated R interface for the 'Tremendous' API with, dare I say, *tremendously* intuitive functions for sending rewards and incentives directly from R.
 
 ## Table of contents
 
@@ -53,7 +53,7 @@ With an API key, you can create a Tremendous Client in R and send payments as sh
 test_client <- trem_client_new(api_key = "TEST_YOUR-KEY-HERE",
                                sandbox = TRUE)
 
-send_payment(client = test_client,
+trem_send_reward(client = test_client,
              name = "first last",
              email = "email@website.com",
              reward_amount = 10,

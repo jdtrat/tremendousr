@@ -73,7 +73,7 @@ reference:
   desc: >
     Function for sending payments via Tremendous API.
   contents:
-    - send_payment
+    - trem_send_reward
 - title: "GET/POST Requests"
   desc: >
     Functions for performing GET and POST Requests to the Tremendous API

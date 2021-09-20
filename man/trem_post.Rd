@@ -67,7 +67,7 @@ This function provides lower-level access to perform POST
 requests via Tremendous API. Available endpoints can be found on the
 official \href{https://developers.tremendous.com/}{Tremendous API documentation}.
 
-For sending payments, I would recommend using \code{\link{send_payment}} as
+For sending payments, I would recommend using \code{\link{trem_send_reward}} as
 it's more intuitive to use. However, this can be done using the
 \code{trem_post()} function (see examples).
 }
@@ -90,7 +90,7 @@ it's more intuitive to use. However, this can be done using the
                           role = "MEMBER"))
 
   # Use a POST send payments --
-  I find it ~tremendously~ easier to use the `send_payment()` function.
+  I find it ~tremendously~ easier to use the `trem_send_reward()` function.
   # Documentation: https://developers.tremendous.com/reference/core-orders-create
   test_client \%>\%
     trem_post(trem_client,
