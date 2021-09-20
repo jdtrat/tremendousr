@@ -1,7 +1,7 @@
 #' Send a Reward via Tremendous API
 #'
-#' The most likely reason to use the tremendousr package is to send payments.
-#' This function, `send_payment()`, provides an easy interface to do so. See the
+#' The most likely reason to use the tremendousr package is to send rewards
+#' This function, `trem_send_reward()`, provides an easy interface to do so. See the
 #' examples for more details.
 #'
 #' @param client A Tremendous API Client object, created with
@@ -53,7 +53,7 @@
 #'
 #'   # To send a payment, you can simply pass in the client
 #'   # and specify the necessary fields.
-#'   payment1 <- send_payment(client = test_client,
+#'   payment1 <- trem_send_reward(client = test_client,
 #'                            name = "first last",
 #'                            email = "email@website.com",
 #'                            reward_amount = 10,
@@ -67,7 +67,7 @@
 #'
 #'   # If you don't wish to use a Tremendous API Client, you can also pass in
 #'   # the `api_key` and `sandbox` arguments manually:
-#'   payment2 <- send_payment(name = "first last",
+#'   payment2 <- trem_send_reward(name = "first last",
 #'                            email = "email@website.com",
 #'                            reward_amount = 10,
 #'                            currency_code = "USD",
@@ -81,7 +81,7 @@
 #' }
 #'
 #'
-send_payment <- function(client,
+trem_send_reward <- function(client,
                          name, email = NULL, phone = NULL,
                          reward_amount, currency_code = "USD", delivery_method = "EMAIL",
                          payment_description_id, funding_source_id, reward_types,

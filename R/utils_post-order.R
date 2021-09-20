@@ -5,7 +5,7 @@
 #' documentation, see
 #' \url{https://developers.tremendous.com/reference/core-orders-create}.
 #'
-#' @inheritParams send_payment
+#' @inheritParams trem_send_reward
 #' @param recipient_name Name of the recipient.
 #' @param recipient_email Email address of the recipient.
 #' @param recipient_phone Phone number of the recipient (US phone numbers only).

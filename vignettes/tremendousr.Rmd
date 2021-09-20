@@ -38,13 +38,13 @@ Sys.setenv("CLIPR_ALLOW" = TRUE)
 trem_set_api_key("TEST_YOUR-KEY-HERE")
 ```
 
-## Send Payments
+## Send Rewards
 
-Given the most likely reason for using tremendousr is to send payments, we have a nice helper function to do just that! With your Tremendous Client created, it's as simple as calling `send_payment()` with the proper arguments. A simple example is below. For more documentation on each argument, please call `?send_payment()` in your console.
+Given the most likely reason for using tremendousr is to send rewards, we have a nice helper function to do just that! With your Tremendous Client created, it's as simple as calling `trem_send_reward()` with the proper arguments. A simple example is below. For more documentation on each argument, please call `?trem_send_reward()` in your console.
 
-```{r send-payment, eval = FALSE}
+```{r send-reward, eval = FALSE}
 
-send_payment(client = test_client,
+trem_send_reward(client = test_client,
              name = "first last",
              email = "email@website.com",
              reward_amount = 10,

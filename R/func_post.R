@@ -5,11 +5,11 @@
 #'   official [Tremendous API
 #'   documentation](https://developers.tremendous.com/).
 #'
-#'   For sending payments, I would recommend using \code{\link{send_payment}} as
+#'   For sending payments, I would recommend using \code{\link{trem_send_reward}} as
 #'   it's more intuitive to use. However, this can be done using the
 #'   `trem_post()` function (see examples).
 #'
-#' @inheritParams send_payment
+#' @inheritParams trem_send_reward
 #'
 #' @param path The URL path, appended to the base URL, for GET requests such as
 #'   listing available payment types, funding sources, account members, and
@@ -51,7 +51,7 @@
 #'                           role = "MEMBER"))
 #'
 #'   # Use a POST send payments --
-#'   I find it ~tremendously~ easier to use the `send_payment()` function.
+#'   I find it ~tremendously~ easier to use the `trem_send_reward()` function.
 #'   # Documentation: https://developers.tremendous.com/reference/core-orders-create
 #'   test_client %>%
 #'     trem_post(trem_client,

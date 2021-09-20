@@ -1,10 +1,10 @@
 virtual_visa_id <- "Q24BD9EZ332JT"
 amazon_id <- "VW9JLMPRL9N7"
 
-test_that("send_payment throws errors - no client or API Key", {
+test_that("trem_send_reward throws errors - no client or API Key", {
 
   expect_error(
-    send_payment(name = "jdt",
+    trem_send_reward(name = "jdt",
                  email = "jdt@jdtrat.com",
                  reward_amount = 36,
                  currency_code = "USD",
@@ -17,10 +17,10 @@ test_that("send_payment throws errors - no client or API Key", {
 
 })
 
-test_that("send_payment throws errors - no client or sandbox", {
+test_that("trem_send_reward throws errors - no client or sandbox", {
 
   expect_error(
-    send_payment(name = "jdt",
+    trem_send_reward(name = "jdt",
                  email = "jdt@jdtrat.com",
                  reward_amount = 36,
                  currency_code = "USD",
@@ -33,13 +33,13 @@ test_that("send_payment throws errors - no client or sandbox", {
 
 })
 
-test_that("send_payment works - no client", {
+test_that("trem_send_reward works - no client", {
 
   skip_on_cran()
   skip_on_travis()
 
   vcr::use_cassette("trem-send-payment_no-client", {
-    testPayment <- send_payment(name = "jdt",
+    testPayment <- trem_send_reward(name = "jdt",
                                 email = "jdt@jdtrat.com",
                                 reward_amount = 0.36,
                                 currency_code = "USD",
@@ -69,7 +69,7 @@ test_that("send_payment works - no client", {
 
 })
 
-test_that("send_payment works - with client", {
+test_that("trem_send_reward works - with client", {
 
   skip_on_cran()
   skip_on_travis()
@@ -78,7 +78,7 @@ test_that("send_payment works - with client", {
                                  sandbox = TRUE)
 
   vcr::use_cassette("trem-send-payment_client", {
-    testPaymentClient <- send_payment(client = test_client,
+    testPaymentClient <- trem_send_reward(client = test_client,
                                       name = "jdt",
                                       email = "jdt@jdtrat.com",
                                       reward_amount = 0.36,
