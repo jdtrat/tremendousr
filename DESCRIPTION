@@ -10,7 +10,7 @@ Authors@R:
            comment = c(ORCID = "0000-0002-1097-7603")),
     person(given = "Scott", 
            family = "Chamberlain", 
-           role = c("aut"),
+           role = c("ctb"),
            comment = "Utility functions `err_catcher()` and `trem_ua()` from chimpr package."),
     person(given = "R Computing Lab at Wake Forest University",
            role = "fnd")
@@ -28,7 +28,6 @@ Imports:
     cli,
     crayon,
     crul,
-    glue,
     jsonlite
 Suggests: 
     testthat (>= 3.0.0),
