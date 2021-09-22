@@ -22,8 +22,7 @@ trem_ua <- function() {
 # https://github.com/sckott/chimpr/
 err_catcher <- function(x) {
   if (x$status_code > 201) {
-    if (x$response_headers$`content-type` ==
-        "application/problem+json; charset=utf-8") {
+    if (grepl("json", x$response_headers$`content-type`)) {
 
       xx <- jsonlite::fromJSON(x$parse("UTF-8"))
       xx <- paste0("\n  ", paste(names(xx), unname(xx), sep = ": ",
