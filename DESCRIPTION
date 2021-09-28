@@ -1,6 +1,6 @@
 Package: tremendousr
 Title: Easily Send Rewards and Incentives with 'Tremendous' from R
-Version: 0.0.1
+Version: 1.0.0
 Authors@R: 
     c(
     person(given = "Jonathan",
@@ -16,12 +16,11 @@ Authors@R:
            role = "fnd")
     )
 Description: A slightly-opinionated R interface for the 'Tremendous' API (<https://www.tremendous.com/>). 
-    In addition to supporting GET and POST requests, tremendousr has, dare I say, 
+    In addition to supporting GET and POST requests, 'tremendousr' has, dare I say, 
     tremendously intuitive functions for sending digital rewards and incentives directly from R.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1.9000
 Imports: 
