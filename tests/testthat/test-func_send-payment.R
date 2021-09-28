@@ -22,6 +22,11 @@ test_that("trem_send_reward works - with client", {
   skip_on_cran()
   skip_on_travis()
 
+
+  test_client <- trem_client_new(api_key = NULL, # Uses system env API key
+                                 sandbox = TRUE)
+
+
   vcr::use_cassette("trem-send-payment_client", {
     testPaymentClient <- trem_send_reward(client = test_client,
                                       name = "jdt",

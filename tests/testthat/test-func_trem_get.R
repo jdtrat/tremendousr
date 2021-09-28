@@ -11,6 +11,11 @@ test_that("trem_get works (funding sources) - with client", {
   skip_on_cran()
   skip_on_travis()
 
+
+  test_client <- trem_client_new(api_key = NULL, # Uses system env API key
+                                 sandbox = TRUE)
+
+
   vcr::use_cassette("trem-get_funding-sources_client", {
     funding_sourcesClient <- trem_get(test_client,
                                       path = "funding_sources",
@@ -33,6 +38,11 @@ test_that("trem_get works (orders) - with client", {
 
   skip_on_cran()
   skip_on_travis()
+
+
+  test_client <- trem_client_new(api_key = NULL, # Uses system env API key
+                                 sandbox = TRUE)
+
 
   vcr::use_cassette("trem-get_orders_client", {
     ordersClient <- trem_get(test_client,
