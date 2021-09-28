@@ -59,13 +59,11 @@ it's more intuitive to use. However, this can be done using the
 
 \dontrun{
 
-  # The recommended method is to create a new Tremendous API Client,
-  # which provides an object to store the API key and environment.
-  # You could also manually pass in api key and sandbox to `trem_post()`.
+  Create a new Tremendous API Client
   test_client <- trem_client_new(api_key = "TEST_YOUR-API-KEY-HERE",
                                  sandbox = TRUE)
 
-  # Use a POST request to invite new members to your Tremendous Account.
+  # Perform a POST request to invite new members to your Tremendous Account.
   # Documentation: https://developers.tremendous.com/reference/post_members
     trem_post(trem_client,
               path = "members",
@@ -73,7 +71,7 @@ it's more intuitive to use. However, this can be done using the
                           name = "Example Person",
                           role = "MEMBER"))
 
-  # Use a POST send payments --
+  # Perform a POST send payments --
   I find it ~tremendously~ easier to use the `trem_send_reward()` function.
   # Documentation: https://developers.tremendous.com/reference/core-orders-create
     trem_post(trem_client,

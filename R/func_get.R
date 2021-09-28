@@ -18,29 +18,26 @@
 #'
 #' \dontrun{
 #'
-#' # The recommended method is to create a new Tremendous API Client, # which
-#' provides an object to store the API key and environment. # You could also
-#' manually pass in api key and sandbox to `trem_post()`.
-#'
+#' # Create a new Tremendous API Client
 #' test_client <- trem_client_new(api_key = "TEST_YOUR-API-KEY-HERE",
 #' sandbox = TRUE) # Sandbox environment so no actual money is sent
 #'
-#' # Use a GET request to list funding sources available in your Tremendous
+#' # Perform a GET request to list funding sources available in your Tremendous
 #' Account. # Documentation:
 #' https://developers.tremendous.com/reference/core-funding-source-index
 #' trem_get(trem_client, "funding_sources")
 #'
-#' # Use a GET request to list all invoices on your Tremendous Account. #
+#' # Perform a GET request to list all invoices on your Tremendous Account. #
 #' Documentation:
 #' https://developers.tremendous.com/reference/core-invoices-index
 #' trem_get(trem_client, "invoices")
 #'
-#' # Use a GET request to list all orders (payment history) on your Tremendous
+#' # Perform a GET request to list all orders (payment history) on your Tremendous
 #' Account. # Documentation:
 #' https://developers.tremendous.com/reference/core-orders-index
 #' trem_get(trem_client, "orders")
 #'
-#' # Use a GET request to list a specific order's information (payment history)
+#' # Perform a GET request to list a specific order's information (payment history)
 #' from your Tremendous Account. # Documentation:
 #' https://developers.tremendous.com/reference/core-orders-show
 #' trem_get(trem_client, "orders/YOUR-ORDER-ID")
@@ -59,7 +56,7 @@ trem_get <- function(client, path,
     check_client(client)
   }
 
-  res <- client$httpClient$get(path = file.path("api/v2/", path),
+  res <- client$httpClient$get(path = file.path("api/v2", path),
                                query = query,
                                disk = disk,
                                stream = stream)
