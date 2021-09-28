@@ -12,6 +12,9 @@ test_that("trem_delete throws errors - no client", {
 
 test_that("trem_delete works", {
 
+  skip_on_cran()
+  skip_on_travis()
+
   trem_post(test_client,
             path = "invoices",
             body = list(po_number = "from-testthat-invoice-id",
@@ -48,6 +51,10 @@ test_that("trem_delete works", {
   expect_equal(deleteClient$invoice$status, "DELETED")
 
   expect_false(deleteClient$invoice$id %in% new_invoices$invoices$id)
+
+
+  on.exit(trem_delete(test_client, paste0("invoices/", my_invoice_id)),
+          add = TRUE)
 
 })
 
