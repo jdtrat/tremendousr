@@ -8,8 +8,6 @@
 #' @inheritParams trem_send_reward
 #' @inheritParams trem_post
 #'
-#' @param ... Curl options passed to [crul::verb-GET]
-#'
 #' @return If `parse = TRUE` (default), a list containing the
 #'   response from the API request. Otherwise, the R6 HttpResponse object
 #'   containing API request data.
@@ -22,9 +20,10 @@
 #'
 #' # The recommended method is to create a new Tremendous API Client, # which
 #' provides an object to store the API key and environment. # You could also
-#' manually pass in api key and sandbox to `trem_post()`. test_client <-
-#' trem_client_new(api_key = "TEST_YOUR-API-KEY-HERE", sandbox = TRUE) # Sandbox
-#' environment so no actual money is sent
+#' manually pass in api key and sandbox to `trem_post()`.
+#'
+#' test_client <- trem_client_new(api_key = "TEST_YOUR-API-KEY-HERE",
+#' sandbox = TRUE) # Sandbox environment so no actual money is sent
 #'
 #' # Use a GET request to list funding sources available in your Tremendous
 #' Account. # Documentation:
@@ -51,36 +50,19 @@
 
 trem_get <- function(client, path,
                      query = list(), disk = NULL, stream = NULL,
-                     api_key, sandbox, parse = TRUE, ...) {
-
+                     parse = TRUE) {
 
   if (missing(client)) {
-    if (missing(sandbox) | missing(api_key)) {
-      cli::cli_abort("Tremendous API Client not supplied.
-                     Please create one with {.fn trem_client_new} or provide {.arg api_key} and {.arg sandbox} directly.")
-    }
-    .key <- api_key
-    .sandbox <- sandbox
+    cli::cli_abort("Tremendous API Client required.
+                     Please create one with {.fn trem_client_new} .")
   } else if (!missing(client)) {
     check_client(client)
-    .key <- client$key
-    .sandbox = client$sandbox
   }
 
-  tr <- crul::HttpClient$new(
-    url = trem_url(.sandbox),
-    opts = c(list(useragent = trem_ua(), ...)),
-    headers = list(
-      Accept = "application/json",
-      Authorization = paste0("Bearer ", check_api_key(.key,
-                                                      sandbox = .sandbox))
-    )
-  )
-
-  res <- tr$get(path = file.path("api/v2/", path),
-                query = query,
-                disk = disk,
-                stream = stream)
+  res <- client$httpClient$get(path = file.path("api/v2/", path),
+                               query = query,
+                               disk = disk,
+                               stream = stream)
 
   err_catcher(res)
 

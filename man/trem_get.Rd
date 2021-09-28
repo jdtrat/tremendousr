@@ -10,10 +10,7 @@ trem_get(
   query = list(),
   disk = NULL,
   stream = NULL,
-  api_key,
-  sandbox,
-  parse = TRUE,
-  ...
+  parse = TRUE
 )
 }
 \arguments{
@@ -34,21 +31,8 @@ memory. See \link[crul:HttpClient]{crul::HttpClient} for more details.}
 default, so info is streaned with memory. See \link[crul:HttpClient]{crul::HttpClient} for more
 details.}
 
-\item{api_key}{API key from
-\href{https://developers.tremendous.com/}{tremendous.com}. Can either pass in
-here as a character string or set for repeated use with
-\code{\link{trem_set_api_key}}.}
-
-\item{sandbox}{Logical: \code{TRUE} (default) and any API requests are performed
-within the Tremendous sandbox environment, a free and fully-featured
-environment for application developing and testing. \code{FALSE} and the API
-requests are performed within the Tremendous production environment. \strong{This
-will involve sending actual money, so be certain you wish to do this!}}
-
 \item{parse}{Logical: Should the API Response results be parsed into a data
 frame?}
-
-\item{...}{Curl options passed to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 If \code{parse = TRUE} (default), a list containing the
@@ -66,9 +50,10 @@ official \href{https://developers.tremendous.com/}{Tremendous API documentation}
 
 # The recommended method is to create a new Tremendous API Client, # which
 provides an object to store the API key and environment. # You could also
-manually pass in api key and sandbox to `trem_post()`. test_client <-
-trem_client_new(api_key = "TEST_YOUR-API-KEY-HERE", sandbox = TRUE) # Sandbox
-environment so no actual money is sent
+manually pass in api key and sandbox to `trem_post()`.
+
+test_client <- trem_client_new(api_key = "TEST_YOUR-API-KEY-HERE",
+sandbox = TRUE) # Sandbox environment so no actual money is sent
 
 # Use a GET request to list funding sources available in your Tremendous
 Account. # Documentation:

@@ -18,6 +18,8 @@ Called by \code{\link{trem_client_new}} to bundle API key and environment.
 \item{\code{key}}{(character) an API key}
 
 \item{\code{sandbox}}{(logical) tremClient for Sandbox environment (TRUE) or production (FALSE)?}
+
+\item{\code{httpClient}}{for internal use}
 }
 \if{html}{\out{</div>}}
 }
@@ -35,7 +37,11 @@ Called by \code{\link{trem_client_new}} to bundle API key and environment.
 \subsection{Method \code{new()}}{
 Create a new \code{tremClient} object
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{tremendous_client$new(api_key = NULL, sandbox = TRUE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{tremendous_client$new(
+  api_key = NULL,
+  sandbox = TRUE,
+  curl_opts = list(useragent = trem_ua())
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -51,6 +57,9 @@ within the Tremendous sandbox environment, a free and fully-featured
 environment for application developing and testing. \code{FALSE} and the API
 requests are performed within the Tremendous production environment. \strong{This
 will involve sending actual money, so be certain you wish to do this!}}
+
+\item{\code{curl_opts}}{A named list of curl options for the API Client. Defaults to include
+useragent info.`}
 }
 \if{html}{\out{</div>}}
 }

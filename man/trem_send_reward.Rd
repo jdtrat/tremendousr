@@ -15,10 +15,7 @@ trem_send_reward(
   payment_description_id,
   funding_source_id,
   reward_types,
-  api_key,
-  sandbox,
-  parse = TRUE,
-  ...
+  parse = TRUE
 )
 }
 \arguments{
@@ -50,21 +47,8 @@ draw funds from for this order. One of the IDs from
 for the recipient to choose from. Available options can be found
 \href{https://www.tremendous.com/catalog}{here}.}
 
-\item{api_key}{API key from
-\href{https://developers.tremendous.com/}{tremendous.com}. Can either pass in
-here as a character string or set for repeated use with
-\code{\link{trem_set_api_key}}.}
-
-\item{sandbox}{Logical: \code{TRUE} (default) and any API requests are performed
-within the Tremendous sandbox environment, a free and fully-featured
-environment for application developing and testing. \code{FALSE} and the API
-requests are performed within the Tremendous production environment. \strong{This
-will involve sending actual money, so be certain you wish to do this!}}
-
 \item{parse}{Logical: Should the API Response results be parsed into a data
 frame?}
-
-\item{...}{Curl options passed to \link[crul:verb-POST]{crul::verb-POST}}
 }
 \value{
 If \code{parse = TRUE} (default), a list containing the response
@@ -80,9 +64,7 @@ examples for more details.
 
 \dontrun{
 
-  # The recommended method is to create a new Tremendous API Client,
-  # which provides an object to store the API key and environment.
-
+  # Create a Tremendous Client
   test_client <- trem_client_new(api_key = "TEST_YOUR-KEY-HERE",
                                  sandbox = TRUE) # Sandbox environment so no actual money is sent
 
@@ -100,19 +82,6 @@ examples for more details.
                            parse = TRUE # Return a parsed API response
   )
 
-  # If you don't wish to use a Tremendous API Client, you can also pass in
-  # the `api_key` and `sandbox` arguments manually:
-  payment2 <- trem_send_reward(name = "first last",
-                           email = "email@website.com",
-                           reward_amount = 10,
-                           currency_code = "USD",
-                           delivery_method = "EMAIL",
-                           payment_description_id = "payment-from-tremendousr-examples",
-                           funding_source_id = "your-funding-id-from-tremendous",
-                           reward_types = "2JFKPXBWDC1K", # ID for Applebee's Gift Card
-                           parse = TRUE, # Return a parsed API response
-                           api_key =  "TEST_YOUR-KEY-HERE",
-                           sandbox = TRUE)
 }
 
 

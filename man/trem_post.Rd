@@ -12,10 +12,7 @@ trem_post(
   disk = NULL,
   stream = NULL,
   encode = "json",
-  api_key,
-  sandbox,
-  parse = TRUE,
-  ...
+  parse = TRUE
 )
 }
 \arguments{
@@ -41,21 +38,8 @@ details.}
 \item{encode}{"json" by default based on Tremendous API Request format. See
 \link[crul:HttpClient]{crul::HttpClient} for more options.}
 
-\item{api_key}{API key from
-\href{https://developers.tremendous.com/}{tremendous.com}. Can either pass in
-here as a character string or set for repeated use with
-\code{\link{trem_set_api_key}}.}
-
-\item{sandbox}{Logical: \code{TRUE} (default) and any API requests are performed
-within the Tremendous sandbox environment, a free and fully-featured
-environment for application developing and testing. \code{FALSE} and the API
-requests are performed within the Tremendous production environment. \strong{This
-will involve sending actual money, so be certain you wish to do this!}}
-
 \item{parse}{Logical: Should the API Response results be parsed into a data
 frame?}
-
-\item{...}{Curl options passed to \link[crul:verb-POST]{crul::verb-POST}}
 }
 \value{
 If \code{parse = TRUE} (default), a list containing the response from the
@@ -92,7 +76,6 @@ it's more intuitive to use. However, this can be done using the
   # Use a POST send payments --
   I find it ~tremendously~ easier to use the `trem_send_reward()` function.
   # Documentation: https://developers.tremendous.com/reference/core-orders-create
-  test_client \%>\%
     trem_post(trem_client,
               path = "orders",
               body = list(

@@ -25,7 +25,6 @@
 #'   details.
 #' @param encode "json" by default based on Tremendous API Request format. See
 #'   [crul::HttpClient] for more options.
-#' @param ... Curl options passed to [crul::verb-POST]
 #'
 #' @return If `parse = TRUE` (default), a list containing the response from the
 #'   API request. Otherwise, the R6 HttpResponse object containing API request
@@ -53,7 +52,6 @@
 #'   # Use a POST send payments --
 #'   I find it ~tremendously~ easier to use the `trem_send_reward()` function.
 #'   # Documentation: https://developers.tremendous.com/reference/core-orders-create
-#'   test_client %>%
 #'     trem_post(trem_client,
 #'               path = "orders",
 #'               body = list(
@@ -84,39 +82,25 @@
 trem_post <- function(client, path,
                       query = list(), body = NULL,
                       disk = NULL, stream = NULL, encode = "json",
-                      api_key, sandbox, parse = TRUE, ...) {
+                      parse = TRUE) {
 
   if (missing(client)) {
-    if (missing(sandbox) | missing(api_key)) {
-      cli::cli_abort("Tremendous API Client not supplied.
-                     Please create one with {.fn trem_client_new} or provide {.arg api_key} and {.arg sandbox} directly.")
-    }
-    .key <- api_key
-    .sandbox <- sandbox
+    cli::cli_abort("Tremendous API Client required.
+                     Please create one with {.fn trem_client_new} .")
   } else if (!missing(client)) {
     check_client(client)
-    .key <- client$key
-    .sandbox = client$sandbox
   }
 
-  tr <- crul::HttpClient$new(
-    url = trem_url(.sandbox),
-    opts = c(list(useragent = trem_ua(), ...)),
-    headers = list(
-      Accept = "application/json",
-      Authorization = paste0("Bearer ", check_api_key(.key,
-                                                      sandbox = .sandbox))
-    )
-  )
-  res <- tr$post(path = file.path("api/v2/", path),
-                 query = query,
-                 body = body,
-                 disk = disk,
-                 stream = stream,
-                 encode = encode
-                 )
+
+  res <- client$httpClient$post(path = file.path("api/v2/", path),
+                                query = query,
+                                body = body,
+                                disk = disk,
+                                stream = stream,
+                                encode = encode)
 
   err_catcher(res)
+
   if (!parse) {
     return(res)
   } else if (parse) {

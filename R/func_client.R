@@ -45,6 +45,8 @@ tremendous_client <- R6::R6Class(
     key = NULL,
     #' @field sandbox (logical) tremClient for Sandbox environment (TRUE) or production (FALSE)?
     sandbox = NULL,
+    #' @field httpClient for internal use
+    httpClient = NULL,
 
     #' @description Create a new `tremClient` object
     #' @param api_key API key from
@@ -56,9 +58,22 @@ tremendous_client <- R6::R6Class(
     #'   environment for application developing and testing. `FALSE` and the API
     #'   requests are performed within the Tremendous production environment. **This
     #'   will involve sending actual money, so be certain you wish to do this!**
-    initialize = function(api_key = NULL, sandbox = TRUE) {
+    #' @param curl_opts A named list of curl options for the API Client. Defaults to include
+    #' useragent info.`
+    initialize = function(api_key = NULL, sandbox = TRUE,
+                          curl_opts = list(useragent = trem_ua())) {
       self$key <- check_api_key(api_key, sandbox = sandbox)
       self$sandbox <- sandbox
+
+      self$httpClient <- crul::HttpClient$new(
+        url = trem_url(sandbox = self$sandbox),
+        opts = curl_opts,
+        headers = list(
+          Accept = "application/json",
+          Authorization = paste0("Bearer ", self$key)
+        )
+      )
+
     },
 
     #' @description Printing method for object of class 'tremClient'.
