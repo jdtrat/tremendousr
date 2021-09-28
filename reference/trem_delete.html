@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Perform a GET request to Tremendous API — trem_get • tremendousr</title>
+<title>Perform a DELETE request to Tremendous API — trem_delete • tremendousr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -50,10 +50,11 @@
 
 
 
-<meta property="og:title" content="Perform a GET request to Tremendous API — trem_get" />
-<meta property="og:description" content="This function provides lower-level access to perform GET
-requests via Tremendous API. Available endpoints can be found on the
-official Tremendous API documentation." />
+<meta property="og:title" content="Perform a DELETE request to Tremendous API — trem_delete" />
+<meta property="og:description" content="Tremendous only supports DELETE requests for one endpoint -- deleting an
+invoice. Per their documentation,
+this request &quot;removes an invoice. This has no further consequences but is a
+rather cosmetic operation.&quot; See the examples for a walk-through." />
 <meta property="og:image" content="https://tremendousr.jdtrat.com/reference/figures/logo.png" />
 <meta property="og:image:alt" content="tremendousr package" />
 <meta name="twitter:card" content="summary" />
@@ -151,23 +152,26 @@ official Tremendous API documentation." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Perform a GET request to Tremendous API</h1>
+    <h1>Perform a DELETE request to Tremendous API</h1>
     
-    <div class="hidden name"><code>trem_get.Rd</code></div>
+    <div class="hidden name"><code>trem_delete.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function provides lower-level access to perform GET
-requests via Tremendous API. Available endpoints can be found on the
-official <a href='https://developers.tremendous.com/'>Tremendous API documentation</a>.</p>
+    <p>Tremendous only supports DELETE requests for one endpoint -- deleting an
+invoice. Per <a href='https://developers.tremendous.com/reference/core-invoices-delete'>their documentation</a>,
+this request "removes an invoice. This has no further consequences but is a
+rather cosmetic operation." See the examples for a walk-through.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>trem_get</span><span class='op'>(</span>
+    <pre class="usage"><span class='fu'>trem_delete</span><span class='op'>(</span>
   <span class='va'>client</span>,
   <span class='va'>path</span>,
   query <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  body <span class='op'>=</span> <span class='cn'>NULL</span>,
   disk <span class='op'>=</span> <span class='cn'>NULL</span>,
   stream <span class='op'>=</span> <span class='cn'>NULL</span>,
+  encode <span class='op'>=</span> <span class='st'>"json"</span>,
   parse <span class='op'>=</span> <span class='cn'>TRUE</span>
 <span class='op'>)</span></pre>
 
@@ -191,6 +195,10 @@ more. See the <a href='https://developers.tremendous.com/'>Tremendous API Docume
 details.</p></td>
     </tr>
     <tr>
+      <th>body</th>
+      <td><p>Request body for Tremendous API, as an R List.</p></td>
+    </tr>
+    <tr>
       <th>disk</th>
       <td><p>A path to write to. <code>NULL</code> by default, so info is written to
 memory. See <a href='https://docs.ropensci.org/crul/reference/HttpClient.html'>crul::HttpClient</a> for more details.</p></td>
@@ -202,6 +210,11 @@ default, so info is streaned with memory. See <a href='https://docs.ropensci.org
 details.</p></td>
     </tr>
     <tr>
+      <th>encode</th>
+      <td><p>"json" by default based on Tremendous API Request format. See
+<a href='https://docs.ropensci.org/crul/reference/HttpClient.html'>crul::HttpClient</a> for more options.</p></td>
+    </tr>
+    <tr>
       <th>parse</th>
       <td><p>Logical: Should the API Response results be parsed into a data
 frame?</p></td>
@@ -210,12 +223,47 @@ frame?</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If <code>parse = TRUE</code> (default), a list containing the
-response from the API request. Otherwise, the R6 HttpResponse object
-containing API request data.</p>
+    <p>If <code>parse = TRUE</code> (default), a list containing the response from the
+API request. Otherwise, the R6 HttpResponse object containing API request
+data.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"></pre>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+
+  <span class='co'># Create a new Tremendous API Client</span>
+  <span class='va'>test_client</span> <span class='op'>&lt;-</span> <span class='fu'><a href='trem_client_new.html'>trem_client_new</a></span><span class='op'>(</span>api_key <span class='op'>=</span> <span class='st'>"TEST_YOUR-API-KEY-HERE"</span>,
+                                 sandbox <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+  <span class='co'># Perform a POST request for an invoice.</span>
+  <span class='co'># `po_number` is Reference to the purchase order number within your organization</span>
+  <span class='co'># `amount` is in USD</span>
+  <span class='fu'><a href='trem_post.html'>trem_post</a></span><span class='op'>(</span><span class='va'>test_client</span>,
+            path <span class='op'>=</span> <span class='st'>"invoices"</span>,
+            body <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>po_number <span class='op'>=</span> <span class='st'>"unique-invoice-id"</span>,
+                        amount <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span>
+  <span class='op'>)</span>
+
+  <span class='co'># Perform a GET request for listing all current (non-deleted) invoices.</span>
+  <span class='va'>current_invoices</span> <span class='op'>&lt;-</span> <span class='fu'><a href='trem_get.html'>trem_get</a></span><span class='op'>(</span><span class='va'>test_client</span>, <span class='st'>"invoices"</span><span class='op'>)</span>
+
+  <span class='co'># Get index for the correct ID</span>
+  <span class='va'>unique_id_index</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='va'>current_invoices</span><span class='op'>$</span><span class='va'>invoices</span><span class='op'>$</span><span class='va'>po_number</span> <span class='op'>==</span> <span class='st'>"unique-invoice-id"</span><span class='op'>)</span>
+
+  <span class='co'># Get the invoice ID for 'unique-invoice-id' to delete</span>
+  <span class='va'>my_invoice_id</span> <span class='op'>&lt;-</span> <span class='va'>current_invoices</span><span class='op'>$</span><span class='va'>invoices</span><span class='op'>[</span><span class='va'>unique_id_index</span>, <span class='st'>"id"</span><span class='op'>]</span>
+
+  <span class='co'># Perform a DELETE request for the specific invoice.</span>
+  <span class='fu'>trem_delete</span><span class='op'>(</span><span class='va'>test_client</span>, <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"invoices/"</span>, <span class='va'>my_invoice_id</span><span class='op'>)</span><span class='op'>)</span>
+
+  <span class='co'># Perform a GET request for listing all current (non-deleted) invoices.</span>
+  <span class='co'># The one with id po_number 'unique-invoice-id' should no longer be here.</span>
+  <span class='fu'><a href='trem_get.html'>trem_get</a></span><span class='op'>(</span><span class='va'>test_client</span>, <span class='st'>"invoices"</span><span class='op'>)</span>
+
+<span class='op'>}</span>
+
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

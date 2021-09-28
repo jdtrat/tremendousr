@@ -117,10 +117,21 @@
 
     
     
+<div id="getting-started" class="section level2">
+<h2 class="hasAnchor">
+<a href="#getting-started" class="anchor"></a>Getting Started</h2>
+<p><a href="https://www.tremendous.com/">tremendous</a> is a platform that “empowers companies to buy, track and manage digital and physical payments.” This package provides a slightly-opinionated R interface for the ‘Tremendous’ API with, dare I say, <em>tremendously</em> intuitive functions for sending rewards and incentives directly from R.</p>
+<p>Tremendous provides two environments for their platform: * ‘Sandbox’ environment, a “free and fully-featured environment for application development and testing.” * ‘Production’ environment, where real payments can be sent.</p>
+<blockquote>
+<p>Tremendous API users typically develop their applications against the sandbox environment, and then switch their credentials to production when they are ready to go live.</p>
+</blockquote>
+<p>Unsurprisingly, in order to use this package, you must create a Tremendous account. For the Sandbox environment, you can sign up or log-in <a href="https://app.testflight.tremendous.com/">here</a> and generate an API key by navigating to <strong>Team Settings &gt; Developers</strong> and clicking on <strong>Add API key</strong> on the top right. You can follow the official documentation <a href="https://developers.tremendous.com/reference/making-your-first-request#key--getting-an-api-key">here</a>.</p>
+<p>With an API key, you can create a Tremendous Client in R and send payments as shown below.</p>
+</div>
 <div id="creating-a-tremendous-api-client" class="section level2">
 <h2 class="hasAnchor">
 <a href="#creating-a-tremendous-api-client" class="anchor"></a>Creating a Tremendous API Client</h2>
-<p>To most easily use this package, I recommend you create a Tremendous API Client by calling the <code><a href="../reference/trem_client_new.html">trem_client_new()</a></code> function. This is a convenient way to bundle your authentication (API) credentials and ensure you are using the proper environment (sandbox or production) for your calls.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Conveniently, Tremendous prefixes API keys for each environment to differentiate them. If you’re using the sandbox environment, your API key would begin with <code>TEST_</code>; the production environment key will begin with <code>PROD_</code>.</p>
+<p>To use this package, you must create a Tremendous API Client by calling, which can be done by calling <code><a href="../reference/trem_client_new.html">trem_client_new()</a></code>. This is a convenient way to bundle your authentication (API) credentials and ensure you are using the proper environment (sandbox or production) for your calls. Conveniently, Tremendous prefixes API keys for each environment to differentiate them. If you’re using the sandbox environment, your API key would begin with <code>TEST_</code>; the production environment key will begin with <code>PROD_</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">test_client</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trem_client_new.html">trem_client_new</a></span><span class="op">(</span>api_key <span class="op">=</span> <span class="st">"TEST_YOUR-KEY-HERE"</span>,
                                sandbox <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
@@ -143,9 +154,10 @@
 <div id="send-rewards" class="section level2">
 <h2 class="hasAnchor">
 <a href="#send-rewards" class="anchor"></a>Send Rewards</h2>
-<p>Given the most likely reason for using tremendousr is to send rewards, we have a nice helper function to do just that! With your Tremendous Client created, it’s as simple as calling <code><a href="../reference/trem_send_reward.html">trem_send_reward()</a></code> with the proper arguments. A simple example is below. For more documentation on each argument, please call <code>?trem_send_reward()</code> in your console.</p>
+<p>Given the most likely reason for using tremendousr is to send rewards, we provide a nice function to do just that! With your Tremendous Client created, it’s as simple as calling <code><a href="../reference/trem_send_reward.html">trem_send_reward()</a></code> with the proper arguments. A simple example is below. For more documentation on each argument, please call <code>?trem_send_reward()</code> in your console.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/trem_send_reward.html">trem_send_reward</a></span><span class="op">(</span>client <span class="op">=</span> <span class="va">test_client</span>,
+<code class="sourceCode R">
+<span class="fu"><a href="../reference/trem_send_reward.html">trem_send_reward</a></span><span class="op">(</span>client <span class="op">=</span> <span class="va">test_client</span>,
              name <span class="op">=</span> <span class="st">"first last"</span>,
              email <span class="op">=</span> <span class="st">"email@website.com"</span>,
              reward_amount <span class="op">=</span> <span class="fl">10</span>,
@@ -162,30 +174,57 @@
 <a href="#perform-get-requests" class="anchor"></a>Perform GET Requests</h2>
 <p>tremendousr also provides support for general GET requests with the function <code><a href="../reference/trem_get.html">trem_get()</a></code>. Some examples from the function documentation:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Use a GET request to list funding sources available in your Tremendous Account.  Documentation: https://developers.tremendous.com/reference/core-funding-source-index</span>
-<span class="fu"><a href="../reference/trem_get.html">trem_get</a></span><span class="op">(</span><span class="va">trem_client</span>, <span class="st">"funding_sources"</span><span class="op">)</span>
+<code class="sourceCode R">
+<span class="co"># Use a GET request to list funding sources available in your Tremendous Account.  Documentation: https://developers.tremendous.com/reference/core-funding-source-index</span>
+<span class="fu"><a href="../reference/trem_get.html">trem_get</a></span><span class="op">(</span><span class="va">test_client</span>, <span class="st">"funding_sources"</span><span class="op">)</span>
 
 <span class="co"># Use a GET request to list all orders (payment history) on your Tremendous Account.   Documentation: https://developers.tremendous.com/reference/core-orders-index</span>
-<span class="fu"><a href="../reference/trem_get.html">trem_get</a></span><span class="op">(</span><span class="va">trem_client</span>, <span class="st">"orders"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/trem_get.html">trem_get</a></span><span class="op">(</span><span class="va">test_client</span>, <span class="st">"orders"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="perform-post-requests" class="section level2">
 <h2 class="hasAnchor">
 <a href="#perform-post-requests" class="anchor"></a>Perform POST Requests</h2>
 <p>tremendousr also provides support for general POST requests with the function <code><a href="../reference/trem_post.html">trem_post()</a></code>. An example from the function documentation:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Use a POST request to invite new members to your Tremendous Account.</span>
+<code class="sourceCode R">
+<span class="co"># Use a POST request to invite new members to your Tremendous Account.</span>
 <span class="co"># Documentation: https://developers.tremendous.com/reference/post_members</span>
- <span class="fu"><a href="../reference/trem_post.html">trem_post</a></span><span class="op">(</span><span class="va">trem_client</span>,
+ <span class="fu"><a href="../reference/trem_post.html">trem_post</a></span><span class="op">(</span><span class="va">test_client</span>,
            path <span class="op">=</span> <span class="st">"members"</span>,
            body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>email <span class="op">=</span> <span class="st">"example@website.com"</span>,
                        name <span class="op">=</span> <span class="st">"Example Person"</span>,
                        role <span class="op">=</span> <span class="st">"MEMBER"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="footnotes">
-<hr>
-<ol>
-<li id="fn1"><p>It is possible to use the functions described below without a Tremendous API Client by manually passing in the <code>api_key</code> and <code>sandbox</code> arguments directly to each function, although I think this is more cumbersome and more error prone.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
+<div id="perform-delete-requests" class="section level2">
+<h2 class="hasAnchor">
+<a href="#perform-delete-requests" class="anchor"></a>Perform DELETE Requests</h2>
+<p>tremendousr provides support for DELETE requests with only one endpoint to “delete an invoice.” Per the <a href="https://developers.tremendous.com/reference/core-invoices-delete">official documentation</a>, this request “removes an invoice. This has no further consequences but is a rather cosmetic operation.” An example, and currently the only supported action, adapted from the function documentation:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+  <span class="co"># Perform a POST request for an invoice.</span>
+  <span class="co"># `po_number` is Reference to the purchase order number within your organization</span>
+  <span class="co"># `amount` is in USD</span>
+  <span class="fu"><a href="../reference/trem_post.html">trem_post</a></span><span class="op">(</span><span class="va">test_client</span>,
+            path <span class="op">=</span> <span class="st">"invoices"</span>,
+            body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>po_number <span class="op">=</span> <span class="st">"unique-invoice-id"</span>,
+                        amount <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>
+  <span class="op">)</span>
+
+  <span class="co"># Perform a GET request for listing all current (non-deleted) invoices.</span>
+  <span class="va">current_invoices</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trem_get.html">trem_get</a></span><span class="op">(</span><span class="va">test_client</span>, <span class="st">"invoices"</span><span class="op">)</span>
+
+  <span class="co"># Get the invoice ID for 'unique-invoice-id' to delete</span>
+  <span class="va">my_invoice_id</span> <span class="op">&lt;-</span> <span class="va">current_invoices</span><span class="op">$</span><span class="va">invoices</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">current_invoices</span><span class="op">$</span><span class="va">invoices</span><span class="op">$</span><span class="va">po_number</span> <span class="op">==</span> <span class="st">"unique-invoice-id"</span><span class="op">)</span>, <span class="st">"id"</span><span class="op">]</span>
+
+  <span class="co"># Perform a DELETE request for the specific invoice.</span>
+  <span class="va">del</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trem_delete.html">trem_delete</a></span><span class="op">(</span><span class="va">test_client</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"invoices/"</span>, <span class="va">my_invoice_id</span><span class="op">)</span><span class="op">)</span>
+
+  <span class="co"># Perform a GET request for listing all current (non-deleted) invoices.</span>
+  <span class="co"># The one with id po_number 'unique-invoice-id' should no longer be here.</span>
+  <span class="va">new_invoices</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trem_get.html">trem_get</a></span><span class="op">(</span><span class="va">test_client</span>, <span class="st">"invoices"</span><span class="op">)</span>
+
+  <span class="co"># Check that the invoice is was deleted; this should be FALSE</span>
+  <span class="va">del</span><span class="op">$</span><span class="va">invoice</span><span class="op">$</span><span class="va">id</span> <span class="op">%in%</span> <span class="va">new_invoices</span><span class="op">$</span><span class="va">invoices</span><span class="op">$</span><span class="va">id</span></code></pre></div>
 </div>
   </div>
 

@@ -176,10 +176,7 @@ it's more intuitive to use. However, this can be done using the
   disk <span class='op'>=</span> <span class='cn'>NULL</span>,
   stream <span class='op'>=</span> <span class='cn'>NULL</span>,
   encode <span class='op'>=</span> <span class='st'>"json"</span>,
-  <span class='va'>api_key</span>,
-  <span class='va'>sandbox</span>,
-  parse <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  <span class='va'>...</span>
+  parse <span class='op'>=</span> <span class='cn'>TRUE</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -222,28 +219,9 @@ details.</p></td>
 <a href='https://docs.ropensci.org/crul/reference/HttpClient.html'>crul::HttpClient</a> for more options.</p></td>
     </tr>
     <tr>
-      <th>api_key</th>
-      <td><p>API key from
-<a href='https://developers.tremendous.com/'>tremendous.com</a>. Can either pass in
-here as a character string or set for repeated use with
-<code><a href='trem_set_api_key.html'>trem_set_api_key</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>sandbox</th>
-      <td><p>Logical: <code>TRUE</code> (default) and any API requests are performed
-within the Tremendous sandbox environment, a free and fully-featured
-environment for application developing and testing. <code>FALSE</code> and the API
-requests are performed within the Tremendous production environment. <strong>This
-will involve sending actual money, so be certain you wish to do this!</strong></p></td>
-    </tr>
-    <tr>
       <th>parse</th>
       <td><p>Logical: Should the API Response results be parsed into a data
 frame?</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Curl options passed to <a href='https://docs.ropensci.org/crul/reference/verb-POST.html'>crul::verb-POST</a></p></td>
     </tr>
     </table>
 

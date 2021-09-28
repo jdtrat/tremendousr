@@ -173,10 +173,7 @@ examples for more details.</p>
   <span class='va'>payment_description_id</span>,
   <span class='va'>funding_source_id</span>,
   <span class='va'>reward_types</span>,
-  <span class='va'>api_key</span>,
-  <span class='va'>sandbox</span>,
-  parse <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  <span class='va'>...</span>
+  parse <span class='op'>=</span> <span class='cn'>TRUE</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -231,28 +228,9 @@ for the recipient to choose from. Available options can be found
 <a href='https://www.tremendous.com/catalog'>here</a>.</p></td>
     </tr>
     <tr>
-      <th>api_key</th>
-      <td><p>API key from
-<a href='https://developers.tremendous.com/'>tremendous.com</a>. Can either pass in
-here as a character string or set for repeated use with
-<code><a href='trem_set_api_key.html'>trem_set_api_key</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>sandbox</th>
-      <td><p>Logical: <code>TRUE</code> (default) and any API requests are performed
-within the Tremendous sandbox environment, a free and fully-featured
-environment for application developing and testing. <code>FALSE</code> and the API
-requests are performed within the Tremendous production environment. <strong>This
-will involve sending actual money, so be certain you wish to do this!</strong></p></td>
-    </tr>
-    <tr>
       <th>parse</th>
       <td><p>Logical: Should the API Response results be parsed into a data
 frame?</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Curl options passed to <a href='https://docs.ropensci.org/crul/reference/verb-POST.html'>crul::verb-POST</a></p></td>
     </tr>
     </table>
 
@@ -266,9 +244,7 @@ API request data.</p>
     <pre class="examples"><div class='input'>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 
-  <span class='co'># The recommended method is to create a new Tremendous API Client,</span>
-  <span class='co'># which provides an object to store the API key and environment.</span>
-
+  <span class='co'># Create a Tremendous Client</span>
   <span class='va'>test_client</span> <span class='op'>&lt;-</span> <span class='fu'><a href='trem_client_new.html'>trem_client_new</a></span><span class='op'>(</span>api_key <span class='op'>=</span> <span class='st'>"TEST_YOUR-KEY-HERE"</span>,
                                  sandbox <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='co'># Sandbox environment so no actual money is sent</span>
 
@@ -286,19 +262,6 @@ API request data.</p>
                            parse <span class='op'>=</span> <span class='cn'>TRUE</span> <span class='co'># Return a parsed API response</span>
   <span class='op'>)</span>
 
-  <span class='co'># If you don't wish to use a Tremendous API Client, you can also pass in</span>
-  <span class='co'># the `api_key` and `sandbox` arguments manually:</span>
-  <span class='va'>payment2</span> <span class='op'>&lt;-</span> <span class='fu'>trem_send_reward</span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"first last"</span>,
-                           email <span class='op'>=</span> <span class='st'>"email@website.com"</span>,
-                           reward_amount <span class='op'>=</span> <span class='fl'>10</span>,
-                           currency_code <span class='op'>=</span> <span class='st'>"USD"</span>,
-                           delivery_method <span class='op'>=</span> <span class='st'>"EMAIL"</span>,
-                           payment_description_id <span class='op'>=</span> <span class='st'>"payment-from-tremendousr-examples"</span>,
-                           funding_source_id <span class='op'>=</span> <span class='st'>"your-funding-id-from-tremendous"</span>,
-                           reward_types <span class='op'>=</span> <span class='st'>"2JFKPXBWDC1K"</span>, <span class='co'># ID for Applebee's Gift Card</span>
-                           parse <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='co'># Return a parsed API response</span>
-                           api_key <span class='op'>=</span>  <span class='st'>"TEST_YOUR-KEY-HERE"</span>,
-                           sandbox <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='op'>}</span>
 
 

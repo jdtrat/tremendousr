@@ -10,6 +10,9 @@
     <loc>https://tremendousr.jdtrat.com/reference/trem_client_new.html</loc>
   </url>
   <url>
+    <loc>https://tremendousr.jdtrat.com/reference/trem_delete.html</loc>
+  </url>
+  <url>
     <loc>https://tremendousr.jdtrat.com/reference/trem_get.html</loc>
   </url>
   <url>
@@ -20,6 +23,9 @@
   </url>
   <url>
     <loc>https://tremendousr.jdtrat.com/reference/trem_set_api_key.html</loc>
+  </url>
+  <url>
+    <loc>https://tremendousr.jdtrat.com/reference/trem_ua.html</loc>
   </url>
   <url>
     <loc>https://tremendousr.jdtrat.com/reference/tremendous_client.html</loc>

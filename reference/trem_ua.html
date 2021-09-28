@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>R6 Class representing a new Tremendous API Client — tremendous_client • tremendousr</title>
+<title>Get useragent info for tremendousr API Package — trem_ua • tremendousr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -50,9 +50,8 @@
 
 
 
-<meta property="og:title" content="R6 Class representing a new Tremendous API Client — tremendous_client" />
-<meta property="og:description" content="R6 Class representing a new Tremendous API Client
-R6 Class representing a new Tremendous API Client" />
+<meta property="og:title" content="Get useragent info for tremendousr API Package — trem_ua" />
+<meta property="og:description" content="Adapted from chimpr." />
 <meta property="og:image" content="https://tremendousr.jdtrat.com/reference/figures/logo.png" />
 <meta property="og:image:alt" content="tremendousr package" />
 <meta name="twitter:card" content="summary" />
@@ -150,89 +149,21 @@ R6 Class representing a new Tremendous API Client" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>R6 Class representing a new Tremendous API Client</h1>
+    <h1>Get useragent info for tremendousr API Package</h1>
     
-    <div class="hidden name"><code>tremendous_client.Rd</code></div>
+    <div class="hidden name"><code>trem_ua.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>R6 Class representing a new Tremendous API Client</p>
-<p>R6 Class representing a new Tremendous API Client</p>
+    <p>Adapted from <a href='https://github.com/jdtrat/chimpr/'>chimpr</a>.</p>
     </div>
 
+    <pre class="usage"><span class='fu'>trem_ua</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Called by <code><a href='trem_client_new.html'>trem_client_new</a></code> to bundle API key and environment.</p>
-    <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
-
-    <p><div class="r6-fields"></p><dl>
-<dt><code>key</code></dt><dd><p>(character) an API key</p></dd>
-
-<dt><code>sandbox</code></dt><dd><p>(logical) tremClient for Sandbox environment (TRUE) or production (FALSE)?</p></dd>
-
-<dt><code>httpClient</code></dt><dd><p>for internal use</p></dd>
-
-</dl><p></div></p>
-    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
-
-    
-<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
-
-<ul>
-<li><p><a href='#method-new'><code>tremendous_client$new()</code></a></p></li>
-<li><p><a href='#method-print'><code>tremendous_client$print()</code></a></p></li>
-<li><p><a href='#method-clone'><code>tremendous_client$clone()</code></a></p></li>
-</ul>
-<p><hr>
-<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
-<p>Create a new <code>tremClient</code> object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>tremendous_client</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>
-  api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
-  sandbox <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  curl_opts <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>useragent <span class='op'>=</span> <span class='fu'><a href='trem_ua.html'>trem_ua</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-<span class='op'>)</span></pre><p></div></p>
-
-<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
-<p><div class="arguments"></p><dl>
-<dt><code>api_key</code></dt><dd><p>API key from
-<a href='https://developers.tremendous.com/'>tremendous.com</a>. Can either pass in
-here as a character string or set for repeated use with
-<code><a href='trem_set_api_key.html'>trem_set_api_key</a></code>.</p></dd>
-
-<dt><code>sandbox</code></dt><dd><p>Logical: <code>TRUE</code> (default) and any API requests are performed
-within the Tremendous sandbox environment, a free and fully-featured
-environment for application developing and testing. <code>FALSE</code> and the API
-requests are performed within the Tremendous production environment. <strong>This
-will involve sending actual money, so be certain you wish to do this!</strong></p></dd>
-
-<dt><code>curl_opts</code></dt><dd><p>A named list of curl options for the API Client. Defaults to include
-useragent info.`</p></dd>
-
-</dl><p></div></p>
-<p><hr>
-<a id="method-print"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code><a href='https://rdrr.io/r/base/print.html'>print()</a></code></h3>
-<p>Printing method for object of class 'tremClient'.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>tremendous_client</span><span class='op'>$</span><span class='fu'>print</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre><p></div></p>
-
-<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
-<p><div class="arguments"></p><dl>
-<dt><code>...</code></dt><dd><p>NA; printing function</p></dd>
-
-</dl><p></div></p>
-<p><hr>
-<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
-<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>tremendous_client</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
-
-<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
-<p><div class="arguments"></p><dl>
-<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
-
-</dl><p></div></p>
-
-
+    <p>useragent info for tremendousr API Package</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
