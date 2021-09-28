@@ -16,7 +16,7 @@ Authors@R:
            role = "fnd")
     )
 Description: A slightly-opinionated R interface for the 'Tremendous' API (<https://www.tremendous.com/>). 
-    In addition to supporting direct with GET and POST requests, tremendousr has, dare I say, 
+    In addition to supporting GET and POST requests, tremendousr has, dare I say, 
     tremendously intuitive functions for sending digital rewards and incentives directly from R.
 License: MIT + file LICENSE
 Encoding: UTF-8
