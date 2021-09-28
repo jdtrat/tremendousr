@@ -62,17 +62,17 @@ trem_send_reward <- function(client,
                          payment_description_id, funding_source_id, reward_types,
                          parse = TRUE) {
 
-  payment_body <- create_order_body(recipient_name = name, recipient_email = email, recipient_phone = phone,
-                                    reward_amount = reward_amount, currency_code = currency_code,
-                                    delivery_method = delivery_method, payment_description_id = payment_description_id,
-                                    funding_source_id = funding_source_id, reward_types = reward_types)
-
   if (missing(client)) {
     cli::cli_abort("Tremendous API Client required.
                      Please create one with {.fn trem_client_new} .")
   } else if (!missing(client)) {
     check_client(client)
   }
+
+  payment_body <- create_order_body(recipient_name = name, recipient_email = email, recipient_phone = phone,
+                                    reward_amount = reward_amount, currency_code = currency_code,
+                                    delivery_method = delivery_method, payment_description_id = payment_description_id,
+                                    funding_source_id = funding_source_id, reward_types = reward_types)
 
   res <- client$httpClient$post(path = "api/v2/orders",
                                 body = payment_body,
