@@ -7,8 +7,17 @@ trem_url <- function(sandbox) {
   }
 }
 
-# Adapted from chimpr package:
-# https://github.com/sckott/chimpr/
+
+
+
+#' Get useragent info for tremendousr API Package
+#'
+#' Adapted from [chimpr](https://github.com/jdtrat/chimpr/).
+#'
+#' @return useragent info for tremendousr API Package
+#' @export
+#'
+#'
 trem_ua <- function() {
   versions <- c(
     paste0("r-curl/", utils::packageVersion("curl")),
@@ -19,7 +28,7 @@ trem_ua <- function() {
 }
 
 # Copied from chimpr package:
-# https://github.com/sckott/chimpr/
+# https://github.com/jdtrat/chimpr/
 err_catcher <- function(x) {
   if (x$status_code > 201) {
     if (grepl("json", x$response_headers$`content-type`)) {
@@ -36,7 +45,7 @@ err_catcher <- function(x) {
 
 check_client <- function(.client) {
   if (!inherits(.client, "tremClient")) {
-    cli::cli_abort("Invalid Tremendous API Client supplied.
-                    Please recreate one with {.fn trem_client_new} or provide {.arg api_key} and {.arg sandbox} directly.")
+    cli::cli_abort("Tremendous API Client required.
+                    Please create one with {.fn trem_client_new}.")
   }
 }
