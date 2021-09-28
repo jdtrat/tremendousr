@@ -10,5 +10,13 @@ trem_ua()
 useragent info for tremendousr API Package
 }
 \description{
-Adapted from \href{https://github.com/jdtrat/chimpr/}{chimpr}.
+Exported for use with \code{\link{trem_client_new}} to provide useragent info
+as a curl option for the API Request. This function was Adapted from
+\href{https://github.com/jdtrat/chimpr/}{chimpr}.
+}
+\examples{
+
+# Get useragent info for the tremendous API package
+trem_ua()
+
 }

@@ -7,16 +7,20 @@ trem_url <- function(sandbox) {
   }
 }
 
-
-
-
 #' Get useragent info for tremendousr API Package
 #'
-#' Adapted from [chimpr](https://github.com/jdtrat/chimpr/).
+#' Exported for use with \code{\link{trem_client_new}} to provide useragent info
+#' as a curl option for the API Request. This function was Adapted from
+#' [chimpr](https://github.com/jdtrat/chimpr/).
 #'
 #' @return useragent info for tremendousr API Package
+
 #' @export
 #'
+#' @examples
+#'
+#' # Get useragent info for the tremendous API package
+#' trem_ua()
 #'
 trem_ua <- function() {
   versions <- c(

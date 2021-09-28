@@ -10,7 +10,11 @@
 #' @param recipient_email Email address of the recipient.
 #' @param recipient_phone Phone number of the recipient (US phone numbers only).
 #'
+#' @return A nested list that, when converted to JSON, is accepted by
+#'   'Tremendous' API's create order endpoint.
+#'
 #' @keywords internal
+#'
 #'
 create_order_body <- function(recipient_name, recipient_email = NULL, recipient_phone = NULL,
                               reward_amount, currency_code = "USD", delivery_method = "EMAIL",

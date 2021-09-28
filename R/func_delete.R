@@ -11,6 +11,7 @@
 #' @return If `parse = TRUE` (default), a list containing the response from the
 #'   API request. Otherwise, the R6 HttpResponse object containing API request
 #'   data.
+#'
 #' @export
 #'
 #' @examples

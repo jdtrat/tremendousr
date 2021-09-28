@@ -12,6 +12,7 @@
 #'
 #' @return An object of class 'tremClient' that contains the API Key and
 #'   Environment information for easily performing Tremendous API requests.
+#'
 #' @export
 #'
 #' @examples

@@ -42,6 +42,10 @@ draw funds from for this order. One of the IDs from
 for the recipient to choose from. Available options can be found
 \href{https://www.tremendous.com/catalog}{here}.}
 }
+\value{
+A nested list that, when converted to JSON, is accepted by
+'Tremendous' API's create order endpoint.
+}
 \description{
 Utility Function to Create an Order on Tremendous. For full API
 documentation, see

@@ -28,6 +28,7 @@ check_api_key <- function(x, sandbox){
 #'   [tremendous.com](https://developers.tremendous.com/).
 #'
 #' @return NA; Used to set the Tremendous API key for persistent use in '.Renviron'.
+#'
 #' @export
 #'
 #' @examples

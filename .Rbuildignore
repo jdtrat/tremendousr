@@ -6,3 +6,4 @@
 ^pkgdown$
 ^vignettes/articles$
 ^\.github$
+^cran-comments\.md$
