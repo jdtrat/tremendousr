@@ -69,14 +69,16 @@ reference:
   contents:
     - trem_client_new
     - trem_set_api_key
+    - trem_ua
 - title: "Send Payments"
   desc: >
     Function for sending payments via Tremendous API.
   contents:
     - trem_send_reward
-- title: "GET/POST Requests"
+- title: "HTTP Requests"
   desc: >
-    Functions for performing GET and POST Requests to the Tremendous API
+    Functions for performing GET, POST, and DELETE Requests to the Tremendous API
   contents:
     - trem_get
     - trem_post
+    - trem_delete
