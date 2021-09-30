@@ -21,9 +21,6 @@ authors:
   Jonathan Trattner:
     href: "https://jdtrat.com"
 
-development:
-  mode: auto
-
 home:
   strip_header: true
   links:
