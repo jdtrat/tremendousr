@@ -57,10 +57,8 @@ navbar:
           href: news/index.html
         - text: "------------------"
         - text: "Blog posts"
-        # Add blog post where a released version is mentioned.
-        - text: "No blog post"
-        # - text: Version 0.2
-        #   href: <url>
+        - text: "tremendousr 1.0.0"
+          href: https://www.jdtrat.com/blog/introducing-tremendousr/
 
 reference:
 - title: "API Client"
