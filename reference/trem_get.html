@@ -87,14 +87,14 @@ official Tremendous API documentation." />
 
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tremendousr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
 
       <!--<div class="navbar-brand-container">
         <a class="navbar-brand" href="../index.html">tremendousr</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of  <a href=""></a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
         </div>
       </div>-->
     </div>
@@ -215,7 +215,36 @@ response from the API request. Otherwise, the R6 HttpResponse object
 containing API request data.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"></pre>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+
+<span class='co'># Create a new Tremendous API Client</span>
+<span class='va'>test_client</span> <span class='op'>&lt;-</span> <span class='fu'><a href='trem_client_new.html'>trem_client_new</a></span><span class='op'>(</span>api_key <span class='op'>=</span> <span class='st'>"TEST_YOUR-API-KEY-HERE"</span>,
+sandbox <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='co'># Sandbox environment so no actual money is sent</span>
+
+<span class='co'># Perform a GET request to list funding sources available in your Tremendous</span>
+<span class='co'># Account. Documentation:</span>
+<span class='co'># https://developers.tremendous.com/reference/core-funding-source-index</span>
+<span class='fu'>trem_get</span><span class='op'>(</span><span class='va'>trem_client</span>, <span class='st'>"funding_sources"</span><span class='op'>)</span>
+
+<span class='co'># Perform a GET request to list all invoices on your Tremendous Account.</span>
+<span class='co'># Documentation:</span>
+<span class='co'># https://developers.tremendous.com/reference/core-invoices-index</span>
+<span class='fu'>trem_get</span><span class='op'>(</span><span class='va'>trem_client</span>, <span class='st'>"invoices"</span><span class='op'>)</span>
+
+<span class='co'># Perform a GET request to list all orders (payment history) on your Tremendous</span>
+<span class='co'># Account. Documentation:</span>
+<span class='co'># https://developers.tremendous.com/reference/core-orders-index</span>
+<span class='fu'>trem_get</span><span class='op'>(</span><span class='va'>trem_client</span>, <span class='st'>"orders"</span><span class='op'>)</span>
+
+<span class='co'># Perform a GET request to list a specific order's information (payment history)</span>
+<span class='co'># from your Tremendous Account. Documentation:</span>
+<span class='co'># https://developers.tremendous.com/reference/core-orders-show</span>
+<span class='fu'>trem_get</span><span class='op'>(</span><span class='va'>trem_client</span>, <span class='st'>"orders/YOUR-ORDER-ID"</span><span class='op'>)</span>
+
+  <span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
