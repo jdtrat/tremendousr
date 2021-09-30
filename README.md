@@ -26,11 +26,13 @@
 
 ## Installation
 
-You can install and load the development version of tremendousr from GitHub as follows:
+You can install {tremendousr} via CRAN or GitHub and load it as follows:
 
 ```r
-# Install the development version from GitHub
-if (!require("remotes")) install.packages("remotes")
+# Install released version from CRAN
+install.packages("tremendousr")
+
+# Or, install the development version from GitHub
 remotes::install_github("jdtrat/tremendousr")
 
 # Load package
