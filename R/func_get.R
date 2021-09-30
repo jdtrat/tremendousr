@@ -23,23 +23,23 @@
 #' sandbox = TRUE) # Sandbox environment so no actual money is sent
 #'
 #' # Perform a GET request to list funding sources available in your Tremendous
-#' Account. # Documentation:
-#' https://developers.tremendous.com/reference/core-funding-source-index
+#' # Account. Documentation:
+#' # https://developers.tremendous.com/reference/core-funding-source-index
 #' trem_get(trem_client, "funding_sources")
 #'
-#' # Perform a GET request to list all invoices on your Tremendous Account. #
-#' Documentation:
-#' https://developers.tremendous.com/reference/core-invoices-index
+#' # Perform a GET request to list all invoices on your Tremendous Account.
+#' # Documentation:
+#' # https://developers.tremendous.com/reference/core-invoices-index
 #' trem_get(trem_client, "invoices")
 #'
 #' # Perform a GET request to list all orders (payment history) on your Tremendous
-#' Account. # Documentation:
-#' https://developers.tremendous.com/reference/core-orders-index
+#' # Account. Documentation:
+#' # https://developers.tremendous.com/reference/core-orders-index
 #' trem_get(trem_client, "orders")
 #'
 #' # Perform a GET request to list a specific order's information (payment history)
-#' from your Tremendous Account. # Documentation:
-#' https://developers.tremendous.com/reference/core-orders-show
+#' # from your Tremendous Account. Documentation:
+#' # https://developers.tremendous.com/reference/core-orders-show
 #' trem_get(trem_client, "orders/YOUR-ORDER-ID")
 #'
 #'   }

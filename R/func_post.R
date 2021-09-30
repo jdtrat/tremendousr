@@ -36,7 +36,7 @@
 #'
 #' \dontrun{
 #'
-#'   Create a new Tremendous API Client
+#'   # Create a new Tremendous API Client
 #'   test_client <- trem_client_new(api_key = "TEST_YOUR-API-KEY-HERE",
 #'                                  sandbox = TRUE)
 #'
