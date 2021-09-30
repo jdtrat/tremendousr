@@ -20,7 +20,9 @@ library(tremendousr)
 [tremendous](https://www.tremendous.com/) is a platform that "empowers companies to buy, track and manage digital and physical payments." This package provides a slightly-opinionated R interface for the 'Tremendous' API with, dare I say, *tremendously* intuitive functions for sending rewards and incentives directly from R. 
 
 Tremendous provides two environments for their platform: 
+
 * 'Sandbox' environment, a "free and fully-featured environment for application development and testing."
+
 * 'Production' environment, where real payments can be sent.
 
 > Tremendous API users typically develop their applications against the sandbox environment, and then switch their credentials to production when they are ready to go live.
@@ -79,10 +81,12 @@ tremendousr also provides support for general GET requests with the function `tr
 
 ```{r trem-get-examples, eval = FALSE}
 
-# Use a GET request to list funding sources available in your Tremendous Account.  Documentation: https://developers.tremendous.com/reference/core-funding-source-index
+# Use a GET request to list funding sources available in your Tremendous Account. 
+# Documentation: https://developers.tremendous.com/reference/core-funding-source-index
 trem_get(test_client, "funding_sources")
 
-# Use a GET request to list all orders (payment history) on your Tremendous Account.   Documentation: https://developers.tremendous.com/reference/core-orders-index
+# Use a GET request to list all orders (payment history) on your Tremendous Account.
+# Documentation: https://developers.tremendous.com/reference/core-orders-index
 trem_get(test_client, "orders")
 ```
 
