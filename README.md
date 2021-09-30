@@ -12,7 +12,7 @@
 
 <img src="https://jdtrat.com/project/tremendousr/featured-hex.png" width="328" height="378" align="right"/>
 
-[tremendous](https://www.tremendous.com/) is a platform that "empowers companies to buy, track and manage digital and physical payments." This package provides a slightly-opinionated R interface for the 'Tremendous' API with, dare I say, *tremendously* intuitive functions for sending rewards and incentives directly from R.
+[Tremendous](https://www.tremendous.com/) is a platform that "empowers companies to buy, track and manage digital and physical payments." This package provides a slightly-opinionated R interface for the 'Tremendous' API with, dare I say, *tremendously* intuitive functions for sending rewards and incentives directly from R.
 
 ## Table of contents
 
