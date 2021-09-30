@@ -122,7 +122,11 @@
 <h2 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting Started</h2>
 <p><a href="https://www.tremendous.com/">tremendous</a> is a platform that “empowers companies to buy, track and manage digital and physical payments.” This package provides a slightly-opinionated R interface for the ‘Tremendous’ API with, dare I say, <em>tremendously</em> intuitive functions for sending rewards and incentives directly from R.</p>
-<p>Tremendous provides two environments for their platform: * ‘Sandbox’ environment, a “free and fully-featured environment for application development and testing.” * ‘Production’ environment, where real payments can be sent.</p>
+<p>Tremendous provides two environments for their platform:</p>
+<ul>
+<li><p>‘Sandbox’ environment, a “free and fully-featured environment for application development and testing.”</p></li>
+<li><p>‘Production’ environment, where real payments can be sent.</p></li>
+</ul>
 <blockquote>
 <p>Tremendous API users typically develop their applications against the sandbox environment, and then switch their credentials to production when they are ready to go live.</p>
 </blockquote>
@@ -176,10 +180,12 @@
 <p>tremendousr also provides support for general GET requests with the function <code><a href="../reference/trem_get.html">trem_get()</a></code>. Some examples from the function documentation:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="co"># Use a GET request to list funding sources available in your Tremendous Account.  Documentation: https://developers.tremendous.com/reference/core-funding-source-index</span>
+<span class="co"># Use a GET request to list funding sources available in your Tremendous Account. </span>
+<span class="co"># Documentation: https://developers.tremendous.com/reference/core-funding-source-index</span>
 <span class="fu"><a href="../reference/trem_get.html">trem_get</a></span><span class="op">(</span><span class="va">test_client</span>, <span class="st">"funding_sources"</span><span class="op">)</span>
 
-<span class="co"># Use a GET request to list all orders (payment history) on your Tremendous Account.   Documentation: https://developers.tremendous.com/reference/core-orders-index</span>
+<span class="co"># Use a GET request to list all orders (payment history) on your Tremendous Account.</span>
+<span class="co"># Documentation: https://developers.tremendous.com/reference/core-orders-index</span>
 <span class="fu"><a href="../reference/trem_get.html">trem_get</a></span><span class="op">(</span><span class="va">test_client</span>, <span class="st">"orders"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="perform-post-requests" class="section level2">
