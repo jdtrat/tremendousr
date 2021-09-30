@@ -4,7 +4,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/jdtrat/tremendousr/workflows/R-CMD-check/badge.svg)](https://github.com/jdtrat/tremendousr/actions)
+[![R-CMD-check](https://github.com/jdtrat/tremendousr/workflows/R-CMD-check/badge.svg)](https://github.com/jdtrat/tremendousr/actions)[![CRAN status](https://www.r-pkg.org/badges/version/tremendousr)](https://CRAN.R-project.org/package=tremendousr)
 
 <!-- badges: end -->
 
